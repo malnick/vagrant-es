@@ -13,5 +13,9 @@ wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add 
 echo "deb http://packages.elastic.co/logstash/2.3/debian stable main" | sudo tee -a /etc/apt/sources.list
 sudo apt-get update && sudo apt-get install logstash
 
+cp /vagrant/elasticsearch.yml /etc/elasticsearch/
+service elasticsearch start
+
 cp /vagrant/logstash.conf /etc/logstash/conf.d/
 service logstash start
+
